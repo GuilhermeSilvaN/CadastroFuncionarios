@@ -16,7 +16,7 @@ public class UserEntityMapper {
                 userEntity.getLastName(),
                 DateToString(userEntity.getBirthDay()),
                 userEntity.getEmail(),
-                userEntity.getCpf()
+                userEntity.getCPF()
         );
     }
 
@@ -26,7 +26,7 @@ public class UserEntityMapper {
                 userEntity.getLastName(),
                 DateToString(userEntity.getBirthDay()),
                 userEntity.getEmail(),
-                userEntity.getCpf()
+                userEntity.getCPF()
         );
     }
 
@@ -36,7 +36,7 @@ public class UserEntityMapper {
                 userEntityDTOCreate.lastName(),
                 StringToDate(userEntityDTOCreate.birthday()),
                 userEntityDTOCreate.email(),
-                userEntityDTOCreate.cpf()
+                userEntityDTOCreate.CPF()
         );
     }
 
@@ -44,7 +44,7 @@ public class UserEntityMapper {
         userEntity.setFirstName(userEntityDTOCreate.firstName());
         userEntity.setLastName(userEntityDTOCreate.lastName());
         userEntity.setEmail(userEntityDTOCreate.email());
-        userEntity.setCpf(userEntityDTOCreate.cpf());
+        userEntity.setCPF(userEntityDTOCreate.CPF());
     }
 
     public static LocalDate StringToDate(String date) {

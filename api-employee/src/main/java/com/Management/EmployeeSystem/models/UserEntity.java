@@ -31,16 +31,16 @@ public class UserEntity implements Serializable {
     private String email;
 
     @Column(name="cpf")
-    private String cpf;
+    private String CPF;
 
     public UserEntity(){}
 
-    public UserEntity(String firstName, String lastName, LocalDate birthDay, String email, String cpf) {
+    public UserEntity(String firstName, String lastName, LocalDate birthDay, String email, String CPF) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.birthDay = birthDay;
         this.email = email;
-        this.cpf = cpf;
+        this.CPF = CPF;
     }
 
     public Long getId() {
@@ -79,11 +79,11 @@ public class UserEntity implements Serializable {
         this.email = email;
     }
 
-    public String getCpf() {
-        return cpf;
+    public String getCPF() {
+        return CPF;
     }
 
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
+    public void setCPF(String CPF) {
+        this.CPF = CPF;
     }
 }

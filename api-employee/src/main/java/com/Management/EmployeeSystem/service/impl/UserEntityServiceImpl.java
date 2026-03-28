@@ -9,6 +9,8 @@ import com.Management.EmployeeSystem.service.UserEntityService;
 import com.Management.EmployeeSystem.service.exception.UserNotFound;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class UserEntityServiceImpl implements UserEntityService {
 
@@ -16,6 +18,13 @@ public class UserEntityServiceImpl implements UserEntityService {
 
     public UserEntityServiceImpl(UserEntityRepository userEntityRepository) {
         this.userEntityRepository = userEntityRepository;
+    }
+
+    @Override
+    public List<UserEntityDTO> findAll (){
+        List<UserEntity> list =  userEntityRepository.findAll();
+
+        return list.stream().map(UserEntityMapper::userEntityToUserEntityDTO).toList();
     }
 
     @Override
@@ -28,7 +37,7 @@ public class UserEntityServiceImpl implements UserEntityService {
 
     @Override
     public UserEntityDTO findUserEntityByFirstName(String firstName) {
-        UserEntity userEntity = userEntityRepository.findUserEntityByUsername(firstName);
+        UserEntity userEntity = userEntityRepository.findUserEntityByFirstName(firstName);
 
         return UserEntityMapper.userEntityToUserEntityDTO(userEntity);
     }

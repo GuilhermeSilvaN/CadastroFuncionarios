@@ -2,14 +2,22 @@ package com.Management.EmployeeSystem.dto;
 
 import com.Management.EmployeeSystem.mapper.UserEntityMapper;
 import com.Management.EmployeeSystem.models.UserEntity;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
+import org.hibernate.validator.constraints.br.CPF;
 
 public record UserEntityDTO(
         Long id,
+        @NotBlank(message="first name is required")
         String firstName,
+        @NotBlank(message="last name is required")
         String lastName,
+        @NotBlank(message="birthday is required")
         String birthday,
+        @Email(message="Invalid email")
         String email,
-        String cpf
+        @NotBlank(message="CPF is required")
+        String CPF
 ) {
     public UserEntityDTO(
             Long id,
@@ -17,14 +25,14 @@ public record UserEntityDTO(
             String lastName,
             String birthday,
             String email,
-            String cpf
+            String CPF
     ){
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.birthday = birthday;
         this.email = email;
-        this.cpf = cpf;
+        this.CPF = CPF;
     }
 
     public UserEntityDTO(UserEntity userEntity){
@@ -34,7 +42,7 @@ public record UserEntityDTO(
                 userEntity.getLastName(),
                 UserEntityMapper.DateToString(userEntity.getBirthDay()),
                 userEntity.getEmail(),
-                userEntity.getCpf()
+                userEntity.getCPF()
         );
     }
 
