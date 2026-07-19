@@ -12,8 +12,9 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 import java.net.URI;
 import java.util.List;
 
+@CrossOrigin("*")
 @RestController
-@RequestMapping("/user")
+@RequestMapping("/employee")
 public class UserEntityController {
 
     private UserEntityServiceImpl userEntityServiceImpl;
